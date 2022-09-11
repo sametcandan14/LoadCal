@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>LoadCal</title>
+    <style>
+      /* base css */
+
+      :root {
+        --white: #fff4cf;
+        --blue: #277bc0;
+        --orange: #ffb200;
+        --yellow: #ffcb42;
+      }
+      html {
+        font-size: 10px;
+        font-family: "Open Sans", sans-serif;
+        background: var(--white);
+      }
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+      h1,
+      h2 {
+        font-weight: 300;
+        line-height: 1.2;
+      }
+
+      /* header */
+      header {
+        height: 8rem;
+        border-bottom: 0.2rem solid var(--blue);
+      }
+
+      header h1 {
+        text-align: center;
+        padding-top: 1rem;
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--blue);
+      }
+
+      .flex-box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      .dims {
+        border-radius: 1rem;
+        transition: 0.2s;
+      }
+
+      .dims:hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      .input-section {
+        margin-top: 2rem;
+      }
+
+      .input-section h2 {
+        text-align: center;
+        margin-top: 1rem;
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      .div-cd {
+        background: var(--blue);
+        width: 30%;
+        height: 35rem;
+        color: var(--orange);
+        border: 0.2rem solid var(--orange);
+      }
+
+      .div-bd {
+        background: var(--orange);
+        width: 30%;
+        height: 35rem;
+        color: var(--blue);
+        border: 0.2rem solid var(--blue);
+      }
+
+      .forms {
+        width: 70%;
+        padding: 2rem 0;
+        margin-left: 3rem;
+      }
+
+      .forms label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 1.7rem;
+        font-weight: 700;
+      }
+
+      .forms .input-form-cd,
+      .forms .input-form-bd {
+        margin-bottom: 1.5rem;
+      }
+
+      .forms input {
+        width: 100%;
+        height: 30px;
+        border-radius: 0.5rem;
+      }
+
+      .div-cd input {
+        border: 0.2rem solid var(--orange);
+      }
+
+      .div-bd input {
+        border: 0.2rem solid var(--blue);
+      }
+
+      /* button */
+      .cal {
+        margin-top: 3rem;
+        background-color: var(--yellow);
+        padding: 1rem 0;
+        border-top: 0.2rem solid var(--blue);
+        border-bottom: 0.2rem solid var(--blue);
+      }
+
+      .cal button {
+        background-color: var(--blue);
+        color: var(--orange);
+        padding: 1rem 1rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+        border: 0.2rem solid var(--orange);
+        border-radius: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .cal button:hover {
+        background-color: var(--white);
+        color: var(--blue);
+      }
+
+      /* result-div */
+
+      .result {
+        margin-top: 3rem;
+      }
+
+      .res-1 h2 {
+        text-align: center;
+
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--blue);
+      }
+      .exps {
+        margin-top: 4rem;
+      }
+
+      .exps table {
+        background: var(--orange);
+        margin-bottom: 3rem;
+        color: var(--blue);
+      }
+
+      .exps table,
+      .exps td {
+        border: 0.2rem solid var(--blue);
+      }
+
+      .exps td {
+        font-size: 1.5rem;
+        font-weight: 700;
+        padding: 0 1rem;
+      }
+
+      /* footer */
+
+      footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 4rem;
+        color: var(--blue);
+        font-weight: 400;
+      }
+
+      footer i {
+        transition: 0.2s;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+      .fa-linkedin {
+        color: #0e72b1;
+      }
+      .fa-github {
+        color: #171515;
+      }
+      .social i:hover {
+        opacity: 0.8;
+      }
+
+      footer p {
+        font-size: 1.6rem;
+      }
+
+      .social {
+        margin-top: -1rem;
+      }
+      .thanks a {
+        text-decoration: none;
+        color: var(--blue);
+        transition: 0.5s;
+      }
+
+      .thanks a:hover {
+        border-bottom: 0.2rem solid var(--blue);
+      }
+
+      /* responsive */
+
+      @media (max-width: 1199px) {
+        html {
+          font-size: 8px;
+        }
+
+        .exps {
+          flex-direction: column;
+          margin-top: 5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        html {
+          font-size: 7.5px;
+        }
+
+        .input-section {
+          flex-direction: column;
+        }
+
+        .dims {
+          margin-top: 3rem;
+          width: 50%;
+          height: 40rem;
+          margin-bottom: 4rem;
+        }
+
+        @media (max-width: 575px) {
+          html {
+            font-size: 7px;
+          }
+
+          .input-section {
+            flex-direction: column;
+          }
+
+          .dims {
+            margin-top: 3rem;
+            width: 60%;
+            height: 40rem;
+            margin-bottom: 5rem;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Loading Calculation</h1>
+    </header>
+    <!-- form1 -->
+    <main>
+      <!-- input section -->
+      <section class="input-section flex-box">
+        <div class="dims div-cd">
+          <h2>Container Dimensions:</h2>
+          <form action="" class="forms form-cd">
+            <div class="input-form-cd">
+              <label for="cw">Container Width:</label
+              ><input
+                type="text"
+                id="cw"
+                placeholder="Enter Container With"
+                required
+              />
+            </div>
+            <div class="input-form-cd">
+              <label for="cl">Container Length:</label
+              ><input
+                type="text"
+                id="cl"
+                placeholder="Enter Container Length"
+                required
+              />
+            </div>
+            <div class="input-form-cd">
+              <label for="ch">Container Height:</label
+              ><input
+                type="text"
+                id="ch"
+                placeholder="Enter Container Height"
+                required
+              />
+            </div>
+          </form>
+        </div>
+        <div class="dims div-bd">
+          <h2>Box Dimensions:</h2>
+          <form action="" class="forms form-bd">
+            <div class="input-form-bd">
+              <label for="bw">Box Width:</label
+              ><input
+                type="text"
+                id="bw"
+                placeholder="Enter Box With"
+                required
+              />
+            </div>
+            <div class="input-form-bd">
+              <label for="bl">Box Length:</label
+              ><input
+                type="text"
+                id="bl"
+                placeholder="Enter Box Length"
+                required
+              />
+            </div>
+            <div class="input-form-bd">
+              <label for="bh">Box Height:</label
+              ><input
+                type="text"
+                id="bh"
+                placeholder="Enter Box Height"
+                required
+              />
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- button-div -->
+      <div class="flex-box cal">
+        <a href="#result"
+          ><button class="cal-button" onclick="calculate()">
+            Calculate
+          </button></a
+        >
+      </div>
+
+      <!-- result-div -->
+      <div id="result" class="result">
+        <div class="res-1">
+          <h2>
+            Result of The Calculation:
+            <span id="cal-result"></span>
+          </h2>
+        </div>
+        <div class="exps flex-box">
+          <div class="exp-1">
+            <table class="table-1">
+              <tr>
+                <td>Along Container Width</td>
+                <td>Side Space</td>
+              </tr>
+              <tr>
+                <td><span id="acw"></span></td>
+                <td><span id="ss"></span></td>
+              </tr>
+            </table>
+          </div>
+          <div class="exp-2">
+            <table class="table-2">
+              <tr>
+                <td>Along Container Length</td>
+                <td>End Space</td>
+              </tr>
+              <tr>
+                <td><span id="acl"></span></td>
+                <td><span id="es"></span></td>
+              </tr>
+            </table>
+          </div>
+          <div class="exp-3">
+            <table class="table-3">
+              <tr>
+                <td>Along Container Height</td>
+                <td>Top Space</td>
+              </tr>
+              <tr>
+                <td><span id="ach"></span></td>
+                <td><span id="ts"></span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="sc">
+        <p>2022 <strong>Samet Candan</strong></p>
+      </div>
+      <div class="social">
+        <a
+          href="https://www.linkedin.com/in/samet-candan-331b7a79/"
+          target="_blank"
+          ><i class="fa-brands fa-linkedin fa-5x"></i
+        ></a>
+        <a href="https://github.com/sametcandan14" target="_blank"
+          ><i class="fa-brands fa-github fa-5x"></i
+        ></a>
+      </div>
+
+      <div class="thanks">
+        <p>
+          Many Thanks to
+          <a
+            class="ms"
+            href="https://www.linkedin.com/in/muhammet-soyt%C3%BCrk-863704173/"
+            target="_blank"
+            ><strong>Muhammet Soytürk</strong>
+          </a>
+          For His Contribution.
+        </p>
+      </div>
+    </footer>
+    <script>
+      function calculate() {
+        // cw:container width
+        // cl:container length
+        // ch: container height
+        // bw: box width
+        // bl: box length
+        // bh: box height
+        // suq: stack up qty
+
+        var cw,
+          cl,
+          ch,
+          bw,
+          bl,
+          bh,
+          suq,
+          y1,
+          y2,
+          y3,
+          y4,
+          SideSpace,
+          EndSpace1,
+          Endspace2,
+          TopSpace,
+          TotalQty;
+
+        cw = Number(document.getElementById("cw").value);
+
+        cl = Number(document.getElementById("cl").value);
+
+        ch = Number(document.getElementById("ch").value);
+
+        bw = Number(document.getElementById("bw").value);
+
+        bl = Number(document.getElementById("bl").value);
+
+        bh = Number(document.getElementById("bh").value);
+
+        suq = Math.floor(ch / bh);
+
+        y1 = Math.floor(cw / bw);
+
+        y2 = Math.floor(cw / bl);
+
+        y3 = Math.floor(cl / bw);
+
+        y4 = Math.floor(cl / bl);
+
+        var dizi1 = new Array();
+
+        var dizi2 = new Array();
+
+        for (var a = 0; a <= y1; a++) dizi1.push(a);
+
+        for (var b = 0; b <= y2; b++) dizi2.push(b);
+
+        // Muhammet Soytürk -->>
+        var n = 0;
+        var m = 0;
+        var max = 0;
+        for (var i = 0; i < dizi1.length; i++) {
+          for (var j = 0; j < dizi2.length; j++) {
+            if (bw * dizi1[i] + bl * dizi2[j] <= cw) {
+              if (bw * dizi1[i] + bl * dizi2[j] >= max) {
+                max = bw * dizi1[i] + bl * dizi2[j];
+                n = dizi1[i];
+                m = dizi2[j];
+              }
+            }
+          }
+        }
+        // Muhammet Soytürk <<--
+
+        TotalQty = suq * (n * y4 + m * y3);
+
+        SideSpace = cw - (n * bw + m * bl);
+
+        EndSpace1 = cl - y4 * bl;
+
+        EndSpace2 = cl - y3 * bw;
+
+        TopSpace = ch - suq * bh;
+
+        document.getElementById("cal-result").innerHTML = TotalQty + " QTY";
+
+        document.getElementById("acw").innerHTML =
+          n + "*" + bw + " + " + m + "*" + bl;
+
+        document.getElementById("ss").innerHTML = SideSpace;
+
+        document.getElementById("acl").innerHTML =
+          n + "*" + y4 + "*" + bl + " & " + m + "*" + y3 + "*" + bw;
+
+        document.getElementById("es").innerHTML =
+          EndSpace1 +
+          "*" +
+          bw +
+          "*" +
+          n +
+          " & " +
+          EndSpace2 +
+          "*" +
+          bl +
+          "*" +
+          m;
+
+        document.getElementById("ach").innerHTML = suq + "*" + bh;
+        document.getElementById("ts").innerHTML = TopSpace;
+      }
+    </script>
+  </body>
+</html>
