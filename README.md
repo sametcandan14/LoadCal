@@ -21,7 +21,7 @@
 
 > Samet Candan
 
-> I am mechanical engineer. I am new at front end.
+> I am a mechanical engineer. I am new at front end.
 > I am working for learn new things and improve myself.
 
 ## Contact
