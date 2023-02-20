@@ -28,3 +28,7 @@
 
 > Email: c._samet@hotmail.com
 > Linkedin: https://www.linkedin.com/in/samet-candan-331b7a79/
+
+## Screenshot
+
+![](./loadCal.gif)
